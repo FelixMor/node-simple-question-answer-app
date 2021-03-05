@@ -1,16 +1,19 @@
-//process.stdin
-//process.stdout.write("Good morning,");
-//process.stdout.write("how are you today? \n\n\n\n");
-
-const questionsArray = [
+const questions = [
     "What is your name?",
     "How old are you?",
     "What is your favorite song?"
 ];
 
-const askQuestions = (i = 0) => {
-    process.stdout.write(`\n\n ${questionsArray[i]}`);
+const ask = (i = 0) => {
+    process.stdout.write(`\n\n ${questions[i]}`);
     process.stdout.write(` >>>> `);
 };
 
-askQuestions();
+ask();
+
+const answers = [];
+process.stdin.on('data', data => {
+    answers.push(data.toString.trim());
+    process.exit();
+
+});
